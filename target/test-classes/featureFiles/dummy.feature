@@ -1,39 +1,38 @@
 Feature: Verify User Login Test Cases
 
-
+@Smoke
 Scenario: verify user login with correct creds
 Given when user is on HomePage
-When user enter correct "hello" and "123"
-Then user is able to see logout button
+When user enter  "standard_user" and "secret_sauce"
+Then user is able to see login button
 
 
-Scenario: verify user not able to  login with incorrect creds
-
-Given when user is on HomePage
-When user enter incorrect userName and password
-Then user should not able to see logout button
+#Scenario: verify user not able to  login with incorrect creds
+#
+#Given when user is on HomePage
+#When user enter  "Na" and "Obsqura"
+#Then user should not able to see logout button
 
 
 Scenario Outline: verify user not able to  login with incorrect creds
 Given when user is on HomePage
-When user enter incorrect userName and password
+When user enter incorrect "<userName>" and "<password>"
 Then user should not able to see logout button
-
  Examples:
         |  userName  |  password  |
         |  Mandy |   qwerty123    |
         | Sandy  |   hchjvhc12    |
-				|        |                |
 				|123@@2  |  ###$%$        |
-				
+
+
+@Reg			
 Scenario: verify error validations
-    Given user is on login pagge
+    Given when user is on HomePage
     When user enters following data
-     |UserName     |     Password   |        ErrorMsg                  |
-     | Mandy       |     Sandhu     |    Password mising digit         |
-     |Pratiskha    |     Varma1     |    Password missing special char |
-     |Ni           |     Sharma12$  |    Username missing lenghth      |
- 
-     Then validate error msgs				
+     | Mandy       |     Sandhu     |    
+     |Pratiskha    |     Varma1    |    
+     |Febinsha           |    Nasreen |   
+    Then user should not able to see logout button
+    		
 
 

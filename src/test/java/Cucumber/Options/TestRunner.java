@@ -1,11 +1,11 @@
 package Cucumber.Options;
 
-public class TestRunner {
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-	private void sysout() {
-		// TODO Auto-generated method stub
-		
-		//hello hello
+@CucumberOptions(features="src/test/java/featureFiles", glue="stepDefinitions", monochrome=true, 
+tags="@Smoke")
+public class TestRunner extends AbstractTestNGCucumberTests {
 
-	}
+	
 }
