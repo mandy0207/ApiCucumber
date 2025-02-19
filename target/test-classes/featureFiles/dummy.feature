@@ -1,10 +1,10 @@
 Feature: Verify User Login Test Cases
 
-@Smoke
+@Alby
 Scenario: verify user login with correct creds
 Given when user is on HomePage
 When user enter  "standard_user" and "secret_sauce"
-Then user is able to see login button
+Then user is able to see login successfully
 
 
 #Scenario: verify user not able to  login with incorrect creds
@@ -14,6 +14,7 @@ Then user is able to see login button
 #Then user should not able to see logout button
 
 
+@Smoke
 Scenario Outline: verify user not able to  login with incorrect creds
 Given when user is on HomePage
 When user enter incorrect "<userName>" and "<password>"
